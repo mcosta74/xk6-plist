@@ -25,7 +25,7 @@ Then:
 
 ```javascript
 // script.js
-import plist from "k6/x/plist";
+import plist, { XMLFormat } from "k6/x/plist";
 
 const data = `<?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -50,7 +50,7 @@ const data = `<?xml version="1.0" encoding="UTF-8"?>
 
 export default function() {
   const [xxx, format] = plist.parse(data);
-  console.log(xxx, format)
+  console.log(xxx, plist.getFormatName(format))
 
   let foo = {
     A: 1,
@@ -62,9 +62,9 @@ export default function() {
     },
   };
 
-  const str1 = plist.serialize(foo, 1);
+  const str1 = plist.serialize(foo, XMLFormat);
   console.log(str1)
 
-  const str2 = plist.serializeIndent(foo, 1, "\t");
+  const str2 = plist.serializeIndent(foo, XMLFormat, "\t");
   console.log(str2);
 }```

@@ -41,6 +41,14 @@ func (*RootModule) NewModuleInstance(vu modules.VU) modules.Instance {
 func (mi *ModuleInstance) Exports() modules.Exports {
 	return modules.Exports{
 		Default: mi.plist,
+		Named: map[string]any{
+			"InvalidFormat":   InvalidFormat,
+			"AutomaticFormat": AutomaticFormat,
+			"XMLFormat":       XMLFormat,
+			"BinaryFormat":    BinaryFormat,
+			"OpenStepFormat":  OpenStepFormat,
+			"GNUStepFormat":   GNUStepFormat,
+		},
 	}
 }
 
