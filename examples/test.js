@@ -1,30 +1,3 @@
-# xk6-plist
-This is a [k6](https://github.com/grafana/k6) extension using the
-[xk6](https://github.com/grafana/xk6) system.
-
-## Build
-
-To build a `k6` binary with this plugin, first ensure you have the prerequisites:
-
-- [Go toolchain](https://go101.org/article/go-toolchain.html)
-- Git
-
-Then:
-
-1. Install `xk6`:
-  ```shell
-  go install go.k6.io/xk6/cmd/xk6@latest
-  ```
-
-2. Build the binary:
-  ```shell
-  xk6 build --with github.com/mcosta74/xk6-plist
-  ```
-
-## Example
-
-```javascript
-// script.js
 import plist from "k6/x/plist";
 
 const data = `<?xml version="1.0" encoding="UTF-8"?>
@@ -67,4 +40,4 @@ export default function() {
 
   const str2 = plist.serializeIndent(foo, 1, "\t");
   console.log(str2);
-}```
+}
