@@ -1,4 +1,4 @@
-import plist, {XMLFormat, getFormatName} from "k6/x/plist";
+import plist, {GNUStepFormat, getFormatName } from "k6/x/plist";
 
 const data = `<?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -35,9 +35,15 @@ export default function() {
     },
   };
 
-  const str1 = plist.serialize(foo, XMLFormat);
+  const str1 = plist.serializeXML(foo);
   console.log(str1)
 
-  const str2 = plist.serializeIndent(foo, XMLFormat, "\t");
+  const str2 = plist.serializeIndentXML(foo, "\t");
   console.log(str2);
+
+  const str3 = plist.serialize(foo, GNUStepFormat);
+  console.log(str3);
+
+  const str4 = plist.serializeIndent(foo, GNUStepFormat, "\t");
+  console.log(str4);
 }

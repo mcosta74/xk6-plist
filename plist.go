@@ -5,19 +5,6 @@ import (
 	"howett.net/plist"
 )
 
-const (
-	// Used by Decoder to represent an invalid property list.
-	InvalidFormat int = plist.InvalidFormat
-
-	// Used to indicate total abandon with regards to Encoder's output format.
-	AutomaticFormat = plist.AutomaticFormat
-
-	XMLFormat      = plist.XMLFormat
-	BinaryFormat   = plist.BinaryFormat
-	OpenStepFormat = plist.OpenStepFormat
-	GNUStepFormat  = plist.GNUStepFormat
-)
-
 type PList struct {
 	vu modules.VU
 }
@@ -35,6 +22,22 @@ func (p *PList) Serialize(data any, format int) (string, error) {
 func (p *PList) SerializeIndent(data any, format int, indent string) (string, error) {
 	out, err := plist.MarshalIndent(data, format, indent)
 	return string(out), err
+}
+
+func (p *PList) SerializeXML(data any) (string, error) {
+	return p.Serialize(data, plist.XMLFormat)
+}
+
+func (p *PList) SerializeIndentXML(data any, indent string) (string, error) {
+	return p.SerializeIndent(data, plist.XMLFormat, indent)
+}
+
+func (p *PList) SerializeBinary(data any) (string, error) {
+	return p.Serialize(data, plist.BinaryFormat)
+}
+
+func (p *PList) SerializeIndentBinary(data any, indent string) (string, error) {
+	return p.SerializeIndent(data, plist.BinaryFormat, indent)
 }
 
 func (p *PList) GetFormatName(format int) string {

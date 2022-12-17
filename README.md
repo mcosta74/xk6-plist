@@ -67,4 +67,11 @@ export default function() {
 
   const str2 = plist.serializeIndent(foo, XMLFormat, "\t");
   console.log(str2);
-}```
+
+  const str3 = plist.serializeXML(foo);
+  console.log(str3)
+
+  const str4 = plist.serializeIndentXML(foo, "\t");
+  console.log(str4);
+}
+```

@@ -2,6 +2,7 @@ package plist
 
 import (
 	"go.k6.io/k6/js/modules"
+	plistlib "howett.net/plist"
 )
 
 // Register the extensions on module initialization.
@@ -42,12 +43,12 @@ func (mi *ModuleInstance) Exports() modules.Exports {
 	return modules.Exports{
 		Default: mi.plist,
 		Named: map[string]any{
-			"InvalidFormat":   InvalidFormat,
-			"AutomaticFormat": AutomaticFormat,
-			"XMLFormat":       XMLFormat,
-			"BinaryFormat":    BinaryFormat,
-			"OpenStepFormat":  OpenStepFormat,
-			"GNUStepFormat":   GNUStepFormat,
+			"InvalidFormat":   plistlib.InvalidFormat,
+			"AutomaticFormat": plistlib.AutomaticFormat,
+			"XMLFormat":       plistlib.XMLFormat,
+			"BinaryFormat":    plistlib.BinaryFormat,
+			"OpenStepFormat":  plistlib.OpenStepFormat,
+			"GNUStepFormat":   plistlib.GNUStepFormat,
 		},
 	}
 }
