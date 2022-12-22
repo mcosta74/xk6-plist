@@ -3,7 +3,7 @@ module github.com/mcosta74/xk6-plist
 go 1.19
 
 require (
-	go.k6.io/k6 v0.41.0
+	go.k6.io/k6 v0.42.0
 	howett.net/plist v1.0.0
 )
 
@@ -31,6 +31,5 @@ require (
 	golang.org/x/time v0.3.0 // indirect
 	google.golang.org/genproto v0.0.0-20221207170731-23e4bf6bdc37 // indirect
 	google.golang.org/grpc v1.51.0 // indirect
-	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/guregu/null.v3 v3.5.0 // indirect
 )
